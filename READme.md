@@ -85,4 +85,126 @@
 ---
 
 ## 🛠️ Technology Stack
+├── 🏗️ HTML5
+│   ├── Semantic markup for better structure
+│   ├── SEO-friendly tags
+│   └── Accessibility features (ARIA labels)
+│
+├── 🎨 CSS3
+│   ├── Flexbox & CSS Grid for responsive layouts
+│   ├── CSS Variables for theme management
+│   ├── Media queries for mobile responsiveness
+│   ├── Animations and transitions
+│   └── Custom properties for consistent design
+│
+└── ⚡ JavaScript (Vanilla ES6+)
+    ├── No frameworks - pure JavaScript
+    ├── localStorage for client-side data persistence
+    ├── DOM manipulation and event handling
+    ├── Asynchronous operations
+    ├── Form validation
+    └── Modular code structure
 
+    /* CSS Variables for Consistent Theming */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --text-color: #333;
+    --light-bg: #f5f5f5;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Flexbox for Navigation */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CSS Grid for Layouts */
+.vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Responsive Design with Media Queries */
+@media (max-width: 768px) {
+    .vendor-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+// ES6+ Features
+const VendorFind = {
+    // Arrow functions
+    init: () => {
+        this.initializeData();
+    },
+    
+    // Template literals
+    getStarRating: (rating) => {
+        return `<span class="rating">${'★'.repeat(rating)}</span>`;
+    },
+    
+    // LocalStorage for data persistence
+    STORAGE_KEYS: {
+        VENDORS: 'vendorfind_vendors',
+        REVIEWS: 'vendorfind_reviews'
+    },
+    
+    // Modern array methods
+    getVendors: () => {
+        return vendors.filter(v => v.category === 'Food')
+                      .map(v => ({...v, displayName: v.businessName}));
+    }
+};
+
+// Using Browser's localStorage as a temporary database
+localStorage.setItem('vendorfind_vendors', JSON.stringify(vendors));
+const vendors = JSON.parse(localStorage.getItem('vendorfind_vendors'));
+
+// Data structure
+const vendorSchema = {
+    id: String,           // Unique identifier
+    businessName: String, // Business name
+    category: String,     // Food, Services, Retail, Artisan, Other
+    location: String,     // City/Area
+    rating: Number,       // Average rating (0-5)
+    totalReviews: Number, // Count of reviews
+    description: String,  // Business description
+    contact: String,      // Phone number
+    email: String,        // Email address
+    photo: String         // Base64 image data
+};
+
+This project uses NO external libraries or frameworks!
+Everything is built with vanilla:
+├── ✅ No jQuery
+├── ✅ No Bootstrap
+├── ✅ No React
+├── ✅ No Vue
+├── ✅ No Angular
+└── ✅ 100% Pure HTML, CSS, and JavaScript
+
+Client-Side Architecture:
+┌─────────────────┐
+│   Browser       │
+│  ┌───────────┐  │
+│  │   HTML    │  │  → Structure
+│  ├───────────┤  │
+│  │    CSS    │  │  → Styling & Layout
+│  ├───────────┤  │
+│  │ JavaScript│  │  → Logic & Interactivity
+│  ├───────────┤  │
+│  │localStorage│  │  → Data Storage
+│  └───────────┘  │
+└─────────────────┘
+
+Current (Frontend only)    →    Future (Full Stack)
+         ↓                              ↓
+   localStorage      →     PostgreSQL/MongoDB
+   Static files      →     Node.js/Python Backend
+   No auth           →     JWT/Session Auth
+   Base64 images     →     Cloud Storage (S3)
+   Manual deploy     →     CI/CD Pipeline
