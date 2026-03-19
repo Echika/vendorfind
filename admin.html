@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - VendorFind</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html">VendorFind</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="search.html">Find Vendors</a></li>
+            <!-- Dashboard link will appear here dynamically when logged in -->
+            <li><a href="sdg-impact.html">Our Impact</a></li>
+            <!-- Login/Signup or User menu will appear here dynamically -->
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+    <main class="admin-page">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p class="admin-note">Protected page - All registered vendors</p>
+
+            <div class="admin-controls">
+                <button id="exportData" class="btn-outline">Export Data</button>
+            </div>
+
+            <div class="admin-table-container">
+                <table class="admin-table" id="vendorTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Business Name</th>
+                            <th>Owner</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vendorTableBody">
+                        <!-- Vendors will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
