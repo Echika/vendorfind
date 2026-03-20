@@ -1,165 +1,178 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VendorFind - Discover Local Vendors</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-<nav class="navbar">
-    <div class="container">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
         <div class="nav-brand">
-            <a href="index.html">VendorFind</a>
+          <a href="index.html">VendorFind</a>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="search.html">Find Vendors</a></li>
-            <!-- Dashboard link will appear here dynamically when logged in -->
-            <li><a href="sdg-impact.html">Our Impact</a></li>
-               <li><a href="signup.html" class="btn-primary">✨ Sign Up Free</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Find Vendors</a></li>
+          <!-- Dashboard link will appear here dynamically when logged in -->
+          <li><a href="sdg-impact.html">Our Impact</a></li>
+          <li><a href="signup.html" class="btn-primary">✨ Sign Up Free</a></li>
         </ul>
         <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Discover Local Vendors in Your Community</h1>
-                    <p>Connect with trusted local businesses across all categories - food, services, artisans, and more</p>
-                    <div class="hero-buttons">
-                        <a href="search.html" class="btn-primary">Find Vendors</a>
-                        <a href="signup.html" class="btn-outline">List Your Business</a>
-                    </div>
-                </div>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Discover Local Vendors in Your Community</h1>
+            <p>
+              Connect with trusted local businesses across all categories -
+              food, services, artisans, and more
+            </p>
+            <div class="hero-buttons">
+              <a href="search.html" class="btn-primary">Find Vendors</a>
+              <a href="signup.html" class="btn-outline">List Your Business</a>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="stats">
-            <div class="container">
-                <div class="stat-grid">
-                    <div class="stat-item">
-                        <h3>100+</h3>
-                        <p>Active Vendors</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>50+</h3>
-                        <p>Categories</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>1000+</h3>
-                        <p>Happy Customers</p>
-                    </div>
-                </div>
+      <section class="stats">
+        <div class="container">
+          <div class="stat-grid">
+            <div class="stat-item">
+              <h3>100+</h3>
+              <p>Active Vendors</p>
             </div>
-        </section>
+            <div class="stat-item">
+              <h3>50+</h3>
+              <p>Categories</p>
+            </div>
+            <div class="stat-item">
+              <h3>1000+</h3>
+              <p>Happy Customers</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section class="categories">
-            <div class="container">
-                <h2>Browse by Category</h2>
-                <div class="category-grid">
-                    <a href="search.html?category=Food" class="category-card">
-                        <div class="category-icon">🍔</div>
-                        <h3>Food</h3>
-                    </a>
-                    <a href="search.html?category=Services" class="category-card">
-                        <div class="category-icon">🔧</div>
-                        <h3>Services</h3>
-                    </a>
-                    <a href="search.html?category=Retail" class="category-card">
-                        <div class="category-icon">🛍️</div>
-                        <h3>Retail</h3>
-                    </a>
-                    <a href="search.html?category=Artisan" class="category-card">
-                        <div class="category-icon">🎨</div>
-                        <h3>Artisan</h3>
-                    </a>
-                    <a href="search.html?category=Other" class="category-card">
-                        <div class="category-icon">📦</div>
-                        <h3>Other</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
+      <section class="categories">
+        <div class="container">
+          <h2>Browse by Category</h2>
+          <div class="category-grid">
+            <a href="search.html?category=Food" class="category-card">
+              <div class="category-icon">🍔</div>
+              <h3>Food</h3>
+            </a>
+            <a href="search.html?category=Services" class="category-card">
+              <div class="category-icon">🔧</div>
+              <h3>Services</h3>
+            </a>
+            <a href="search.html?category=Retail" class="category-card">
+              <div class="category-icon">🛍️</div>
+              <h3>Retail</h3>
+            </a>
+            <a href="search.html?category=Artisan" class="category-card">
+              <div class="category-icon">🎨</div>
+              <h3>Artisan</h3>
+            </a>
+            <a href="search.html?category=Other" class="category-card">
+              <div class="category-icon">📦</div>
+              <h3>Other</h3>
+            </a>
+          </div>
+        </div>
+      </section>
 
-        <section class="sdg-section">
-            <div class="container">
-                <h2>Supporting Sustainable Development</h2>
-                <div class="sdg-badges">
-                   <!-- In sdg-impact.html, change this: -->
-<div class="sdg-badge">
-    <img src="assets/images/sdg8.png" alt="SDG 8" style="width: 120px; height: 110px;">
-    <h3>SDG 8</h3>
-    <p>Decent Work & Economic Growth</p>
-</div>
-                    <div class="sdg-badge">
-                        <img src="assets/images/sdg9.png" alt="SDG 9" style="width: 120px; height: 110px;">
-                        <h3>SDG 9</h3>
-                        <p>Industry, Innovation & Infrastructure</p>
-                    </div>
-                </div>
-                <a href="sdg-impact.html" class="btn-outline">Learn More About Our Impact</a>
+      <section class="sdg-section">
+        <div class="container">
+          <h2>Supporting Sustainable Development</h2>
+          <div class="sdg-badges">
+            <!-- In sdg-impact.html, change this: -->
+            <div class="sdg-badge">
+              <img
+                src="assets/images/sdg8.png"
+                alt="SDG 8"
+                style="width: 120px; height: 110px"
+              />
+              <h3>SDG 8</h3>
+              <p>Decent Work & Economic Growth</p>
             </div>
-        </section>
+            <div class="sdg-badge">
+              <img
+                src="assets/images/sdg9.png"
+                alt="SDG 9"
+                style="width: 120px; height: 110px"
+              />
+              <h3>SDG 9</h3>
+              <p>Industry, Innovation & Infrastructure</p>
+            </div>
+          </div>
+          <a href="sdg-impact.html" class="btn-outline"
+            >Learn More About Our Impact</a
+          >
+        </div>
+      </section>
 
-        <section class="how-it-works">
-            <div class="container">
-                <h2>How It Works</h2>
-                <div class="steps-grid">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Search</h3>
-                        <p>Search by category, location, or keyword</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Discover</h3>
-                        <p>Browse vendor profiles with ratings and reviews</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Connect</h3>
-                        <p>Contact and engage with trusted local vendors</p>
-                    </div>
-                </div>
+      <section class="how-it-works">
+        <div class="container">
+          <h2>How It Works</h2>
+          <div class="steps-grid">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>Search</h3>
+              <p>Search by category, location, or keyword</p>
             </div>
-        </section>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>Discover</h3>
+              <p>Browse vendor profiles with ratings and reviews</p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>Connect</h3>
+              <p>Contact and engage with trusted local vendors</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>VendorFind</h4>
-                    <p>Connecting communities with local vendors</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="search.html">Find Vendors</a></li>
-                        <li><a href="signup.html">Become a Vendor</a></li>
-                        <li><a href="sdg-impact.html">Our Impact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: support@vendorfind.com</p>
-                    <p>Phone: +2347085706889</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 VendorFind. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>VendorFind</h4>
+            <p>Connecting communities with local vendors</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="search.html">Find Vendors</a></li>
+              <li><a href="signup.html">Become a Vendor</a></li>
+              <li><a href="sdg-impact.html">Our Impact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: support@vendorfind.com</p>
+            <p>Phone: +2347085706889</p>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 VendorFind. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
