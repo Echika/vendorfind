@@ -115,3 +115,310 @@
         font-size: 28px;
     }
 }
+
+/* ========================================
+   MOBILE LOGIN & SIGNUP PAGE FIXES
+   ======================================== */
+
+/* Better mobile styling for auth pages */
+@media (max-width: 768px) {
+    
+    /* Auth page container */
+    .auth-page {
+        padding: 20px 0;
+        min-height: calc(100vh - 60px);
+        display: flex;
+        align-items: flex-start;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    }
+    
+    /* Auth form container - make it pop! */
+    .auth-form-container {
+        margin: 10px auto;
+        padding: 25px 20px;
+        width: 90%;
+        max-width: 400px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        border: 1px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+        animation: slideUp 0.5s ease-out;
+    }
+    
+    /* Animation for form appearance */
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Headers */
+    .auth-form-container h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+        color: var(--primary-color);
+        text-align: center;
+        font-weight: 700;
+    }
+    
+    .auth-form-container p {
+        text-align: center;
+        color: #666;
+        margin-bottom: 25px;
+        font-size: 16px;
+    }
+    
+    /* Form groups */
+    .form-group {
+        margin-bottom: 18px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: #444;
+        font-size: 14px;
+    }
+    
+    /* Input fields - make them bigger and touch-friendly */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 14px 16px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+        transition: all 0.3s ease;
+        background: #fafafa;
+        -webkit-appearance: none; /* Removes default iOS styling */
+        appearance: none;
+    }
+    
+    /* Focus state */
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-color: var(--primary-color);
+        background: white;
+        box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+        outline: none;
+    }
+    
+    /* Select dropdown styling */
+    .form-group select {
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 40px;
+    }
+    
+    /* Checkbox styling */
+    .form-checkbox {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        background: #f8f9fa;
+        padding: 12px 15px;
+        border-radius: 12px;
+        margin: 15px 0;
+    }
+    
+    .form-checkbox input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+        margin: 0;
+        accent-color: var(--primary-color);
+    }
+    
+    .form-checkbox label {
+        margin: 0;
+        font-size: 15px;
+        color: #555;
+    }
+    
+    /* Buttons */
+    .btn-primary,
+    .btn-outline {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 12px;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color), #45a049);
+        border: none;
+        color: white;
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    }
+    
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+    
+    .btn-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+    }
+    
+    .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+    
+    /* Auth redirect link */
+    .auth-redirect {
+        text-align: center;
+        margin-top: 25px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+        font-size: 15px;
+    }
+    
+    .auth-redirect a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+    
+    .auth-redirect a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Error messages */
+    .error-message {
+        background: #ffebee;
+        color: #c62828;
+        padding: 12px 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        border-left: 4px solid #c62828;
+    }
+    
+    /* Success messages */
+    .success-message {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 12px 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        border-left: 4px solid #2e7d32;
+    }
+    
+    /* Password strength indicator (if you have one) */
+    .password-strength {
+        margin-top: 8px;
+        height: 4px;
+        background: #e0e0e0;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    
+    .password-strength-bar {
+        height: 100%;
+        width: 0;
+        transition: width 0.3s ease;
+    }
+    
+    .password-strength.weak .password-strength-bar {
+        width: 33%;
+        background: #f44336;
+    }
+    
+    .password-strength.medium .password-strength-bar {
+        width: 66%;
+        background: #ff9800;
+    }
+    
+    .password-strength.strong .password-strength-bar {
+        width: 100%;
+        background: #4caf50;
+    }
+    
+    /* Input icons (optional - if you want to add them) */
+    .input-with-icon {
+        position: relative;
+    }
+    
+    .input-with-icon input {
+        padding-left: 45px;
+    }
+    
+    .input-with-icon i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 18px;
+    }
+}
+
+/* Extra small devices (phones, 480px and below) */
+@media (max-width: 480px) {
+    .auth-form-container {
+        padding: 20px 15px;
+        width: 95%;
+    }
+    
+    .auth-form-container h1 {
+        font-size: 24px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .form-checkbox {
+        padding: 10px 12px;
+    }
+}
+
+/* Small phones (320px and below) */
+@media (max-width: 320px) {
+    .auth-form-container {
+        padding: 15px 12px;
+    }
+    
+    .auth-form-container h1 {
+        font-size: 22px;
+    }
+    
+    .form-group label {
+        font-size: 13px;
+    }
+    
+    .auth-redirect {
+        font-size: 13px;
+    }
+}
