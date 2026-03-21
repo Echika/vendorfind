@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryFilter = document.getElementById('categoryFilter');
     const locationFilter = document.getElementById('locationFilter');
 
-    // Load initial vendors
+    // Load initial vendors list
     loadVendors();
 
     // Check URL parameters for category
