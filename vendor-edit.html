@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - VendorFind</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor-dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">VendorFind</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="search.html">Find Vendors</a></li>
+                <li><a href="vendor-dashboard.html">My Dashboard</a></li>
+                <li><a href="sdg-impact.html">Our Impact</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Edit Business Profile</h1>
+                <p>Update your business information</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="vendor-quick-stats">
+                        <div class="vendor-avatar">
+                            <img id="sidebarPhoto" src="assets/images/default-avatar.jpg" alt="Profile">
+                        </div>
+                        <h3 id="sidebarBusinessName">Business Name</h3>
+                        <p id="sidebarCategory">Category</p>
+                        <p id="sidebarRating">⭐ 0.0 (0 reviews)</p>
+                    </div>
+                    <nav class="dashboard-nav">
+                        <ul>
+                            <li><a href="vendor-dashboard.html">📊 Dashboard</a></li>
+                            <li><a href="vendor-edit.html" class="active">✏️ Edit Profile</a></li>
+                            <li><a href="#" id="navProducts">📦 Products/Services</a></li>
+                            <li><a href="#" id="navReviews">📝 Reviews</a></li>
+                            <li><a href="#" id="navSettings">⚙️ Settings</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="dashboard-main">
+                    <div class="edit-profile-form">
+                        <form id="editVendorForm">
+                            <div class="form-section">
+                                <h2>Basic Information</h2>
+                                
+                                <div class="form-group">
+                                    <label for="businessName">Business Name *</label>
+                                    <input type="text" id="businessName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="ownerName">Owner Name *</label>
+                                    <input type="text" id="ownerName" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="category">Category *</label>
+                                    <select id="category" required>
+                                        <option value="Food">Food</option>
+                                        <option value="Services">Services</option>
+                                        <option value="Retail">Retail</option>
+                                        <option value="Artisan">Artisan</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subcategory">Subcategory (Optional)</label>
+                                    <input type="text" id="subcategory" placeholder="e.g., Bakery, Plumbing, Jewelry">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Location & Contact</h2>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="location">City/Area *</label>
+                                        <input type="text" id="location" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Street Address</label>
+                                        <input type="text" id="address" placeholder="Optional">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="contact">Phone Number *</label>
+                                        <input type="tel" id="contact" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="whatsapp">WhatsApp Number</label>
+                                        <input type="tel" id="whatsapp" placeholder="Optional">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="website">Website (Optional)</label>
+                                    <input type="url" id="website" placeholder="https://...">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Business Description</h2>
+                                
+                                <div class="form-group">
+                                    <label for="shortDescription">Short Description (Displayed on cards)</label>
+                                    <input type="text" id="shortDescription" maxlength="100" placeholder="Brief summary of your business">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Full Description *</label>
+                                    <textarea id="description" rows="6" required></textarea>
+                                    <small class="form-text">Tell customers about your products, services, and what makes you unique</small>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Business Hours</h2>
+                                
+                                <div class="business-hours">
+                                    <div class="hours-row">
+                                        <span>Monday</span>
+                                        <input type="time" class="open-time" value="09:00"> to <input type="time" class="close-time" value="17:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Tuesday</span>
+                                        <input type="time" class="open-time" value="09:00"> to <input type="time" class="close-time" value="17:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Wednesday</span>
+                                        <input type="time" class="open-time" value="09:00"> to <input type="time" class="close-time" value="17:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Thursday</span>
+                                        <input type="time" class="open-time" value="09:00"> to <input type="time" class="close-time" value="17:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Friday</span>
+                                        <input type="time" class="open-time" value="09:00"> to <input type="time" class="close-time" value="17:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Saturday</span>
+                                        <input type="time" class="open-time" value="10:00"> to <input type="time" class="close-time" value="15:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Sunday</span>
+                                        <input type="time" class="open-time" value="10:00"> to <input type="time" class="close-time" value="14:00">
+                                        <label><input type="checkbox" class="closed-check"> Closed</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Photos</h2>
+                                
+                                <div class="photo-gallery-upload">
+                                    <div class="main-photo-upload">
+                                        <label>Profile Photo</label>
+                                        <div class="upload-area" id="profilePhotoUpload">
+                                            <input type="file" id="profilePhoto" accept="image/*" hidden>
+                                            <div class="upload-placeholder">
+                                                <span class="upload-icon">📸</span>
+                                                <p>Click to upload profile photo</p>
+                                            </div>
+                                            <img id="profilePhotoPreview" src="#" alt="Preview" style="display: none;">
+                                        </div>
+                                    </div>
+
+                                    <div class="gallery-photos-upload">
+                                        <label>Gallery Photos (Max 5)</label>
+                                        <div class="gallery-grid" id="galleryUploadGrid">
+                                            <div class="gallery-upload-item" data-index="0">
+                                                <input type="file" class="gallery-photo" accept="image/*" hidden>
+                                                <div class="upload-placeholder">+</div>
+                                                <img class="gallery-preview" src="#" alt="" style="display: none;">
+                                                <button class="remove-photo" style="display: none;">×</button>
+                                            </div>
+                                            <!-- More items will be added via JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h2>Payment Methods</h2>
+                                
+                                <div class="payment-methods">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="Cash"> Cash
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="Bank Transfer"> Bank Transfer
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="Mobile Money"> Mobile Money
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" value="Credit Card"> Credit Card
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                                <button type="button" class="btn-outline" id="cancelEdit">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/vendor-dashboard.js"></script>
+</body>
+</html>

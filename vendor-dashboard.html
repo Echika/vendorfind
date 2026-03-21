@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Dashboard - VendorFind</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor-dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">VendorFind</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="search.html">Find Vendors</a></li>
+                <li><a href="vendor-dashboard.html">My Dashboard</a></li>
+                <li><a href="sdg-impact.html">Our Impact</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="dashboard-page">
+        <div class="container">
+            <div class="dashboard-header">
+                <h1>Vendor Dashboard</h1>
+                <p>Manage your business and track performance</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="vendor-quick-stats">
+                        <div class="vendor-avatar">
+                            <img id="sidebarPhoto" src="assets/images/default-avatar.jpg" alt="Profile">
+                        </div>
+                        <h3 id="sidebarBusinessName">Business Name</h3>
+                        <p id="sidebarCategory">Category</p>
+                        <p id="sidebarRating">⭐ 0.0 (0 reviews)</p>
+                    </div>
+                    <nav class="dashboard-nav">
+                        <ul>
+                            <li><a href="vendor-dashboard.html" class="active">📊 Dashboard</a></li>
+                            <li><a href="vendor-edit.html">✏️ Edit Profile</a></li>
+                            <li><a href="#" id="navProducts">📦 Products/Services</a></li>
+                            <li><a href="#" id="navReviews">📝 Reviews</a></li>
+                            <li><a href="#" id="navSettings">⚙️ Settings</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+
+                <!-- Main Content -->
+                <div class="dashboard-main">
+                    <!-- Quick Stats -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">👁️</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Profile Views</span>
+                                <span class="stat-value" id="profileViews">127</span>
+                                <span class="stat-change positive">+12% this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Average Rating</span>
+                                <span class="stat-value" id="avgRating">4.5</span>
+                                <span class="stat-change" id="totalReviews">(28 reviews)</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔍</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Search Appearances</span>
+                                <span class="stat-value" id="searchAppearances">342</span>
+                                <span class="stat-change positive">+23%</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📞</div>
+                            <div class="stat-content">
+                                <span class="stat-label">Contact Clicks</span>
+                                <span class="stat-value" id="contactClicks">56</span>
+                                <span class="stat-change">This month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Reviews -->
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Recent Reviews</h2>
+                            <a href="#" id="viewAllReviews">View All →</a>
+                        </div>
+                        <div class="reviews-list" id="recentReviews">
+                            <!-- Reviews will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Profile Completion -->
+                    <div class="dashboard-section">
+                        <h2>Profile Completion</h2>
+                        <div class="completion-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="profileCompletion" style="width: 75%"></div>
+                            </div>
+                            <span id="completionPercentage">75%</span>
+                        </div>
+                        <div class="completion-tasks">
+                            <div class="task completed">✓ Business name added</div>
+                            <div class="task completed">✓ Category selected</div>
+                            <div class="task completed">✓ Location added</div>
+                            <div class="task" id="taskPhoto">○ Add profile photo</div>
+                            <div class="task" id="taskHours">○ Set business hours</div>
+                            <div class="task" id="taskProducts">○ Add products/services</div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="dashboard-section">
+                        <h2>Quick Actions</h2>
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="location.href='vendor-edit.html'">
+                                ✏️ Edit Profile
+                            </button>
+                            <button class="action-btn" id="shareProfile">
+                                📤 Share Profile
+                            </button>
+                            <button class="action-btn" id="previewProfile">
+                                👁️ Preview as Customer
+                            </button>
+                            <button class="action-btn" id="generateQR">
+                                📱 Generate QR Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- QR Code Modal -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Vendor QR Code</h2>
+            <div id="qrCode"></div>
+            <p>Customers can scan this to view your profile</p>
+            <button class="btn-primary" id="downloadQR">Download QR Code</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/vendor-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - VendorFind</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">VendorFind</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="search.html">Find Vendors</a></li>
+                <li><a href="sdg-impact.html">Our Impact</a></li>
+                <li><a href="login.html" id="loginLink">Login</a></li>
+                <li><a href="signup.html" class="btn-primary" id="signupLink">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-page">
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <p class="admin-note">Protected page - All registered vendors</p>
+
+            <div class="admin-controls">
+                <button id="exportData" class="btn-outline">📥 Export Data</button>
+            </div>
+
+            <div class="admin-table-container">
+                <table class="admin-table" id="vendorTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Business Name</th>
+                            <th>Owner</th>
+                            <th>Category</th>
+                            <th>Location</th>
+                            <th>Contact</th>
+                            <th>Rating</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vendorTableBody">
+                        <tr>
+                            <td colspan="8" class="no-results">Loading vendors...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>VendorFind</h4>
+                    <p>Connecting communities with local vendors</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="search.html">Find Vendors</a></li>
+                        <li><a href="signup.html">Become a Vendor</a></li>
+                        <li><a href="sdg-impact.html">Our Impact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: support@vendorfind.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VendorFind. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin login check -->
+    <script>
+        // Check if user is logged in as admin
+        (function() {
+            const currentUser = JSON.parse(localStorage.getItem('vendorfind_current_user') || 'null');
+            
+            // If not logged in as admin, redirect to login
+            if (!currentUser || currentUser.email !== 'admin@vendorfind.com') {
+                alert('Admin access only. Please login as admin.');
+                window.location.href = 'login.html';
+            }
+        })();
+    </script>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
