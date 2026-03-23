@@ -2,7 +2,7 @@
 
 ![VendorFind Banner](https://via.placeholder.com/1200x300/4CAF50/ffffff?text=VendorFind+-+Discover+Local+Vendors)
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://your-site.netlify.app)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://echika.github.io/vendorfind)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Made with](https://img.shields.io/badge/made%20with-HTML%2FCSS%2FJS-yellow)]()
 
