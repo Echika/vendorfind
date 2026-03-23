@@ -6,6 +6,7 @@ import vendorRoutes from "./routes/vendorRoutes.js";
 import searchRoutes from "./routes/searchRoutes.js";
 import reviewRoutes from "./routes/reviewRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import categoryRoutes from "./routes/categoriesRoutes.js";
 
 dotenv.config();
 
@@ -19,9 +20,11 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/vendors", vendorRoutes);
+//app.use("/api/login", vendorRoutes);
 app.use("/api/search", searchRoutes);
 app.use("/api/reviews", reviewRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/categories", categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 

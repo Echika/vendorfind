@@ -1,98 +1,87 @@
-// Handle vendor registration
-document.addEventListener('DOMContentLoaded', () => {
-    const signupForm = document.getElementById('vendorSignupForm');
-    const loginForm = document.getElementById('loginForm');
+document.addEventListener("DOMContentLoaded", () => {
+  const signupForm = document.getElementById("vendorSignupForm");
+  if (signupForm) signupForm.addEventListener("submit", handleSignup);
 
-    if (signupForm) {
-        signupForm.addEventListener('submit', handleSignup);
-    }
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    }
+  // Load categories from backend
+  loadCategories();
 });
 
-function handleSignup(e) {
-    e.preventDefault();
+const CATEGORY_API_URL = "http://localhost:5000/api/categories"; // endpoint to get categories
 
-    // Get form data
-    const formData = {
-        id: VendorFind.generateId(),
-        businessName: document.getElementById('businessName').value,
-        ownerName: document.getElementById('ownerName').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
-        category: document.getElementById('category').value,
-        location: document.getElementById('location').value,
-        description: document.getElementById('description').value,
-        contact: document.getElementById('contact').value,
-        rating: 0,
-        totalReviews: 0,
-        createdAt: new Date().toISOString()
+// ------------------- LOAD CATEGORIES -------------------
+async function loadCategories() {
+  const categorySelect = document.getElementById("category");
+  if (!categorySelect) return;
+
+  try {
+    const res = await fetch(CATEGORY_API_URL);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(data.error || "Failed to load categories");
+
+    // Clear existing options
+    categorySelect.innerHTML = `<option value="">Select Category</option>`;
+
+    // Populate options from backend
+    data.forEach((cat) => {
+      const option = document.createElement("option");
+      option.value = cat.id; // assuming backend returns [{name: 'Food'}, ...]
+      option.textContent = cat.name;
+      categorySelect.appendChild(option);
+    });
+  } catch (err) {
+    console.error("Error loading categories:", err);
+    alert("Failed to load categories from server. Please try again later.");
+  }
+}
+
+// ------------------- SIGNUP -------------------
+async function handleSignup(e) {
+  e.preventDefault();
+
+  const vendorData = {
+    business_name: document.getElementById("businessName").value.trim(),
+    business_owner: document.getElementById("ownerName").value.trim(),
+    contact_email: document.getElementById("email").value.trim(),
+    password_hash: document.getElementById("password").value.trim(),
+    category_id: document.getElementById("category").value.trim(),
+    location: document.getElementById("location").value.trim(),
+    description: document.getElementById("description").value.trim(),
+    contact_number: document.getElementById("contact").value.trim(),
+  };
+
+  const photoInput = document.getElementById("businessPhoto");
+  if (photoInput?.files && photoInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      vendorData.photo = event.target.result;
+      sendSignupRequest(vendorData);
     };
-
-    // Handle photo upload
-    const photoInput = document.getElementById('businessPhoto');
-    if (photoInput.files && photoInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            formData.photo = e.target.result;
-            saveVendor(formData);
-        };
-        reader.readAsDataURL(photoInput.files[0]);
-    } else {
-        formData.photo = null;
-        saveVendor(formData);
-    }
+    reader.readAsDataURL(photoInput.files[0]);
+  } else {
+    sendSignupRequest(vendorData);
+  }
 }
 
-function saveVendor(vendorData) {
-    // Get existing vendors
-    const vendors = JSON.parse(localStorage.getItem(VendorFind.STORAGE_KEYS.VENDORS)) || [];
-    
-    // Check if email already exists
-    if (vendors.some(v => v.email === vendorData.email)) {
-        alert('Email already registered. Please use a different email.');
-        return;
+async function sendSignupRequest(vendorData) {
+  try {
+    const res = await fetch(`${API_BASE_URL}/vendors`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(vendorData),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      alert(data.error || "Signup failed");
+      return;
     }
 
-    // Add new vendor
-    vendors.push(vendorData);
-    localStorage.setItem(VendorFind.STORAGE_KEYS.VENDORS, JSON.stringify(vendors));
-
-    // Auto login
-    localStorage.setItem(VendorFind.STORAGE_KEYS.CURRENT_USER, JSON.stringify(vendorData));
-
-    alert('Registration successful! Welcome to VendorFind.');
-    window.location.href = 'vendor-profile.html?id=' + vendorData.id;
-}
-
-function handleLogin(e) {
-    e.preventDefault();
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const rememberMe = document.getElementById('rememberMe')?.checked || false;
-
-    // Get vendors
-    const vendors = JSON.parse(localStorage.getItem(VendorFind.STORAGE_KEYS.VENDORS)) || [];
-
-    // Find vendor
-    const vendor = vendors.find(v => v.email === email && v.password === password);
-
-    if (vendor) {
-        // Set current user
-        localStorage.setItem(VendorFind.STORAGE_KEYS.CURRENT_USER, JSON.stringify(vendor));
-
-        alert('Login successful!');
-        
-        // Check if admin (simple check - you can modify this)
-        if (email === 'admin@vendorf ind.com') {
-            window.location.href = 'admin.html';
-        } else {
-            window.location.href = 'vendor-profile.html?id=' + vendor.id;
-        }
-    } else {
-        alert('Invalid email or password. Please try again.');
-    }
+    localStorage.setItem("vendorfind_current_user", JSON.stringify(data));
+    alert("Signup successful!");
+    window.location.href = "vendor-profile.html?id=" + data.id;
+  } catch (err) {
+    console.error(err);
+    alert("Server error during signup. Try again later.");
+  }
 }

@@ -7,7 +7,7 @@ export const searchVendors = async (req, res) => {
   let query = supabase.from("vendors").select("*");
 
   if (keyword) {
-    query = query.ilike("name", `%${keyword}%`);
+    query = query.ilike("business_name", `%${keyword}%`);
   }
 
   if (category) {

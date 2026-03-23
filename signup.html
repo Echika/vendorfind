@@ -1,103 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up - VendorFind</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-   <nav class="navbar">
-    <div class="container">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
         <div class="nav-brand">
-            <a href="index.html">VendorFind</a>
+          <a href="index.html">VendorFind</a>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="search.html">Find Vendors</a></li>
-            <!-- Dashboard link will appear here dynamically when logged in -->
-            <li><a href="sdg-impact.html">Our Impact</a></li>
-            <!-- Login/Signup or User menu will appear here dynamically -->
+          <li><a href="index.html">Home</a></li>
+          <li><a href="search.html">Find Vendors</a></li>
+          <!-- Dashboard link will appear here dynamically when logged in -->
+          <li><a href="sdg-impact.html">Our Impact</a></li>
+          <!-- Login/Signup or User menu will appear here dynamically -->
         </ul>
         <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
     <main class="auth-page">
-        <div class="container">
-            <div class="auth-form-container">
-                <h1>Create Your Vendor Profile</h1>
-                <p>Join VendorFind and grow your business</p>
-                
-                <form id="vendorSignupForm" class="auth-form">
-                    <div class="form-group">
-                        <label for="businessName">Business Name</label>
-                        <input type="text" id="businessName" required>
-                    </div>
+      <div class="container">
+        <div class="auth-form-container">
+          <h1>Create Your Vendor Profile</h1>
+          <p>Join VendorFind and grow your business</p>
 
-                    <div class="form-group">
-                        <label for="ownerName">Owner Name</label>
-                        <input type="text" id="ownerName" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="category">Category</label>
-                        <select id="category" required>
-                            <option value="">Select Category</option>
-                            <option value="Food">Food</option>
-                            <option value="Services">Services</option>
-                            <option value="Retail">Retail</option>
-                            <option value="Artisan">Artisan</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="location">Location (City/Area)</label>
-                        <input type="text" id="location" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Business Description</label>
-                        <textarea id="description" rows="4" required></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact">Contact Number</label>
-                        <input type="tel" id="contact" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="businessPhoto">Business Photo</label>
-                        <input type="file" id="businessPhoto" accept="image/*">
-                    </div>
-
-                    <button type="submit" class="btn-primary btn-full">Create Vendor Profile</button>
-                </form>
-
-                <p class="auth-redirect">
-                    Already have an account? <a href="login.html">Login</a>
-                </p>
+          <form id="vendorSignupForm" class="auth-form">
+            <div class="form-group">
+              <label for="businessName">Business Name</label>
+              <input type="text" id="businessName" required />
             </div>
+
+            <div class="form-group">
+              <label for="ownerName">Owner Name</label>
+              <input type="text" id="ownerName" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" required />
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="category" required>
+                <option value="">Select Category</option>
+                <option value="Food">Food</option>
+                <option value="Services">Services</option>
+                <option value="Retail">Retail</option>
+                <option value="Artisan">Artisan</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location (City/Area)</label>
+              <input type="text" id="location" required />
+            </div>
+
+            <div class="form-group">
+              <label for="description">Business Description</label>
+              <textarea id="description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="contact">Contact Number</label>
+              <input type="tel" id="contact" required />
+            </div>
+
+            <div class="form-group">
+              <label for="businessPhoto">Business Photo</label>
+              <input type="file" id="businessPhoto" accept="image/*" />
+            </div>
+
+            <button type="submit" class="btn-primary btn-full">
+              Create Vendor Profile
+            </button>
+          </form>
+
+          <p class="auth-redirect">
+            Already have an account? <a href="login.html">Login</a>
+          </p>
         </div>
+      </div>
     </main>
 
-    <script src="js/main.js"></script>
+    <script src="js/server-app.js"></script>
     <script src="js/auth.js"></script>
-</body>
+  </body>
 </html>
