@@ -79,7 +79,7 @@ function loadVendors(filters = {}) {
 
     vendorGrid.innerHTML = filteredVendors.map(vendor => `
         <a href="vendor-profile.html?id=${vendor.id}" class="vendor-card">
-            <div class="vendor-card-image" style="background-image: url('${vendor.photo || 'assets/images/default-vendor.jpg'}')"></div>
+            <div class="vendor-card-image" style="background-image: url('${vendor.photo || '../assets/images/default-vendor.jpg'}')"></div>
             <div class="vendor-card-content">
                 <h3>${vendor.businessName}</h3>
                 <p class="category">${vendor.category}</p>
@@ -124,7 +124,7 @@ function loadVendorProfile() {
     const whatsappLink = vendor.whatsapp ? VendorFind.formatWhatsAppLink(vendor.whatsapp, `Hi ${vendor.businessName}, I found you on VendorFind!`) : '#';
 
     vendorProfile.innerHTML = `
-        <div class="profile-header" style="background-image: url('${vendor.photo || 'assets/images/default-vendor.jpg'}')"></div>
+        <div class="profile-header" style="background-image: url('${vendor.photo || '../assets/images/default-vendor.jpg'}')"></div>
         <div class="profile-info">
             <h1>${vendor.businessName}</h1>
             <div class="profile-meta">
